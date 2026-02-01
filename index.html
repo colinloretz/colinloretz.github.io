@@ -1,63 +1,132 @@
-<!DOCTYPE HTML>
-<!--
-	Identity by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Colin Loretz</title>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-  <link rel="stylesheet" href="assets/css/main.css" />
-  <noscript>
-    <link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-</head>
-
-<body class="is-preload">
-
-  <!-- Wrapper -->
-  <div id="wrapper">
-
-    <!-- Main -->
-    <section id="main">
-      <header>
-        <span class="avatar"><img src="images/avatar.png" alt="" /></span>
-        <h1>Colin Loretz</h1>
-        <p class="bio">Small-batch artisanal <br />Software Developer</p>
-      </header>
-
-      <footer>
-        <ul class="icons">
-          <li><a href="https://twitter.com/colinloretz" class="icon brands fa-twitter" target="_blank">Twitter</a></li>
-          <li><a href="https://github.com/colinloretz" class="icon brands fa-github " target="_blank">Github</a></li>
-          <li><a href="https://instagram.com/colinloretz" class="icon brands fa-instagram" target="_blank">Instagram</a></li>
-          <li><a href="https://www.strava.com/athletes/73629" class="icon brands fa-strava" target="_blank">Strava</a></li>
-        </ul>
-      </footer>
-    </section>
-
-    <!-- Footer -->
-    <footer id="footer">
-      <ul class="copyright">
-        <li>&copy; Colin Loretz</li>
-        <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-      </ul>
-    </footer>
-
-  </div>
-
-  <!-- Scripts -->
-  <script>
-    if ('addEventListener' in window) {
-      window.addEventListener('load', function() {
-        document.body.className = document.body.className.replace(/\bis-preload\b/, '');
-      });
-      document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
+  <link rel="icon" href="/favicon.ico">
+  <style>
+    :root {
+      --bg: #fafafa;
+      --shimmer-1: #0ea5e9;
+      --shimmer-2: #10b981;
+      --shimmer-3: #06b6d4;
+      --icon-color: #374151;
     }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #0a0a0a;
+        --shimmer-1: #fefce8;
+        --shimmer-2: #fbbf24;
+        --shimmer-3: #f59e0b;
+        --icon-color: #d1d5db;
+      }
+    }
+
+    :root[data-theme="dark"] {
+      --bg: #0a0a0a;
+      --shimmer-1: #fefce8;
+      --shimmer-2: #fbbf24;
+      --shimmer-3: #f59e0b;
+      --icon-color: #d1d5db;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      min-height: 100dvh;
+      display: grid;
+      place-items: center;
+      background: var(--bg);
+      font-family: system-ui, -apple-system, sans-serif;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 10vw, 6rem);
+      font-weight: 700;
+      background: linear-gradient(90deg, var(--shimmer-1), var(--shimmer-2), var(--shimmer-3), var(--shimmer-1));
+      background-size: 300% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shimmer 8s ease-in-out infinite;
+    }
+
+    @keyframes shimmer {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    .theme-toggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+      transition: opacity 0.2s;
+    }
+
+    .theme-toggle:hover {
+      opacity: 0.7;
+    }
+
+    .theme-toggle svg {
+      width: 1.5rem;
+      height: 1.5rem;
+      color: var(--icon-color);
+    }
+
+    .theme-toggle .sun { display: none; }
+    .theme-toggle .moon { display: block; }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .theme-toggle .sun { display: block; }
+      :root:not([data-theme="light"]) .theme-toggle .moon { display: none; }
+    }
+
+    :root[data-theme="dark"] .theme-toggle .sun { display: block; }
+    :root[data-theme="dark"] .theme-toggle .moon { display: none; }
+    :root[data-theme="light"] .theme-toggle .sun { display: none; }
+    :root[data-theme="light"] .theme-toggle .moon { display: block; }
+  </style>
+</head>
+<body>
+  <button class="theme-toggle" aria-label="Toggle theme">
+    <svg class="sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+    </svg>
+    <svg class="moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+    </svg>
+  </button>
+  <h1>colinloretz</h1>
+  <script>
+    const toggle = document.querySelector('.theme-toggle');
+    const root = document.documentElement;
+
+    // Check for saved preference, otherwise use system preference
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      root.setAttribute('data-theme', savedTheme);
+    }
+
+    toggle.addEventListener('click', () => {
+      const currentTheme = root.getAttribute('data-theme');
+      const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+      let isDark;
+      if (currentTheme === 'dark') isDark = true;
+      else if (currentTheme === 'light') isDark = false;
+      else isDark = systemDark;
+
+      const newTheme = isDark ? 'light' : 'dark';
+      root.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+    });
   </script>
-
 </body>
-
 </html>
